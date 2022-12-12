@@ -14,14 +14,16 @@ def solution():
 
         # Every character will be no less than 0
         DEFAULT_CHAR_MAX = -1
-        # Create set for visible points
-        visible = set()
+        # Track amt of visible trees
+        visibleCount = 0
 
         totalDistanceScore = 0
 
         for currentRowIndex in range(len(data)):
             currentRow = data[currentRowIndex]
             for currentColIndex in range(len(currentRow)):
+                
+                visibleCounted = False
 
                 currentVal = currentRow[currentColIndex]
                 
@@ -35,9 +37,9 @@ def solution():
                         if not leftStopped and currentVal <= currentRow[leftCharIndex]:
                             leftViewingDistance = currentColIndex-leftCharIndex
                             leftStopped = True
-                if leftMax < currentVal:
-                    # The point is visible, add it
-                    visible.add((currentRowIndex,currentColIndex))
+                if leftMax < currentVal and not visibleCounted:
+                    visibleCount += 1
+                    visibleCounted = True
                 
                 rightStopped = False
                 rightViewingDistance = len(currentRow)-currentColIndex-1
@@ -49,8 +51,9 @@ def solution():
                         if not rightStopped and currentRow[rightCharIndex] >= currentVal:
                             rightViewingDistance = rightCharIndex-currentColIndex
                             rightStopped = True
-                if rightMax < currentVal:
-                    visible.add((currentRowIndex, currentColIndex))
+                if rightMax < currentVal and not visibleCounted:
+                    visibleCount += 1
+                    visibleCounted = True
 
                 upStopped = False
                 upViewingDistance = currentRowIndex
@@ -62,8 +65,9 @@ def solution():
                         if not upStopped and data[uRow][currentColIndex] >= currentVal:
                             upStopped = True
                             upViewingDistance = currentRowIndex-uRow
-                if upMax < currentVal:
-                    visible.add((currentRowIndex,currentColIndex))
+                if upMax < currentVal and not visibleCounted:
+                    visibleCount += 1
+                    visibleCounted = True
 
                 downStopped = False
                 downViewingDistance = len(data)-currentRowIndex-1
@@ -75,15 +79,16 @@ def solution():
                         if not downStopped and data[dRow][currentColIndex] >= currentVal:
                             downStopped = True
                             downViewingDistance = dRow-currentRowIndex
-                if downMax < currentVal:
-                    visible.add((currentRowIndex,currentColIndex))
+                if downMax < currentVal and not visibleCounted:
+                    visibleCount += 1
+                    visibleCounted = True
 
                 # Only consider a distance score if it is larger than the previous
                 if totalDistanceScore < rightViewingDistance * downViewingDistance * leftViewingDistance * upViewingDistance:
                     totalDistanceScore = rightViewingDistance * downViewingDistance * leftViewingDistance * upViewingDistance
 
         # Output
-        return (str(len(visible)), str(totalDistanceScore))
+        return (str(visibleCount)), str(totalDistanceScore)
 
 if __name__ == "__main__":
     main()
