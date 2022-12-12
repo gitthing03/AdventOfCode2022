@@ -16,14 +16,12 @@ def solution():
         DEFAULT_CHAR_MAX = -1
         # Create set for visible points
         visible = set()
-        # Create a dictionary storing the scenic score for each point
-        scores = {}
+
+        totalDistanceScore = 0
 
         for currentRowIndex in range(len(data)):
             currentRow = data[currentRowIndex]
             for currentColIndex in range(len(currentRow)):
-
-                scores[(currentRowIndex, currentColIndex)] = 1
 
                 currentVal = currentRow[currentColIndex]
                 
@@ -80,14 +78,12 @@ def solution():
                 if downMax < currentVal:
                     visible.add((currentRowIndex,currentColIndex))
 
-                # Multiply each score together for total score, and store
-                scores[(currentRowIndex, currentColIndex)] = rightViewingDistance * downViewingDistance * leftViewingDistance * upViewingDistance
+                # Only consider a distance score if it is larger than the previous
+                if totalDistanceScore < rightViewingDistance * downViewingDistance * leftViewingDistance * upViewingDistance:
+                    totalDistanceScore = rightViewingDistance * downViewingDistance * leftViewingDistance * upViewingDistance
 
         # Output
-        maxval = 0
-        for val in scores:
-            maxval = max(maxval, scores[val])
-        return (str(len(visible)), str(maxval))
+        return (str(len(visible)), str(totalDistanceScore))
 
 if __name__ == "__main__":
     main()
