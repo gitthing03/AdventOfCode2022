@@ -37,10 +37,12 @@ def monkeyRounds(rounds, worryManager):
     if worryManager == 1:
         for monkey in monkeys:
             modValue *= monkey.test
+    # Create a reference to the other monkeys for each monkey
+    for monkey in monkeys:
+        monkey.family = monkeys
     # Play specified rounds
     for _ in range(rounds):
         for monkey in monkeys:
-            monkey.family = monkeys
             monkey.play(worryManager, modValue)
     # Identify the two highest inspect counts, and return their product
     inspects = []
