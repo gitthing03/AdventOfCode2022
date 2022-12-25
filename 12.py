@@ -32,7 +32,7 @@ def main():
     print("Part1: " + fewestSteps(startp1, nodes, destination))
     print("Part2: " + fewestSteps(startp2, nodes, destination))
 
-# Calculate the fewest steps from starting node(s) to destination (Djisktra's)
+# Calculate the fewest steps from starting node(s) to destination
 def fewestSteps(start, nodes, destination):
     nodeCosts = {} # Create dictionaries for each node's best path and best path cost
     nodePaths = {}
@@ -49,7 +49,7 @@ def fewestSteps(start, nodes, destination):
     toVisit = start if type(start) is set else {start} # Create a set of what nodes to visit, begin with starting node(s)
     dontVisit = set() # Create a set of nodes that have already been visited
     while toVisit: # While there are still nodes to visit
-        current = toVisit.pop() # Grab a random node from to visit
+        current = toVisit.pop() # Pop a random node
         dontVisit.add(current) # Add that node to the don't visit list
         # For each of that node's neighbors, if the path cost of the current node + 1 is less than that neighbor's current path cost, 
         # change best path for that neighbor
