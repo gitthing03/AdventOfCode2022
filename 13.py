@@ -46,34 +46,13 @@ def comparePackets(packet):
         if type(pair1[i]) is int and type(pair2[i]) is int:         # If both of the current vals are ints, compare
             compare = compareInts((pair1[i], pair2[i]))
         elif type(pair1[i]) is list and type(pair2[i]) is list:     # If both of the current vals are lists, compare the lists
-            compare = compareLists((pair1[i], pair2[i]))
+            compare = comparePackets((pair1[i], pair2[i]))
         else:                                                       # Different types
             if type(pair1[i]) is int:                               # Convert whichever value is an int to a list, then compare lists
-                compare = compareLists(([pair1[i]], pair2[i]))
+                compare = comparePackets(([pair1[i]], pair2[i]))
             else:
-                compare = compareLists((pair1[i], [pair2[i]]))
+                compare = comparePackets((pair1[i], [pair2[i]]))
         if compare != None: return compare
-
-def compareLists(lists):
-    # Use the longer list's length
-    length = len(lists[0]) if len(lists[0]) > len(lists[1]) else len(lists[1])
-    for i in range(length):
-        # If left ran out, true, if right ran out, false
-        if i+1>len(lists[0]):
-            return True
-        elif i+1>len(lists[1]):
-            return False
-        if type(lists[0][i]) is int and type(lists[1][i]) is int:           # If both of the current vals are ints, compare
-            compare = compareInts((lists[0][i], lists[1][i]))
-        elif type(lists[0][i]) is list and type(lists[1][i]) is list:       # If both of the current vals are lists, compare the lists
-            compare = compareLists((lists[0][i], lists[1][i]))
-        else:                                                               # Different types
-            if type(lists[0][i]) is int:                                    # Convert whichever value is an int to a list, then compare lists
-                compare = compareLists(([lists[0][i]], lists[1][i]))
-            else:
-                compare = compareLists((lists[0][i], [lists[1][i]]))
-        if compare != None: return compare
-    return None
 
 def compareInts(ints):
     # Only make a comparison if the values are different
