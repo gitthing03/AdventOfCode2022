@@ -1,4 +1,4 @@
-with open('inputs/1.txt', 'r') as file:
+with open('inputs/01.txt', 'r') as file:
     currentCount = 0
     highestCount1 = 0
     highestCount2 = 0

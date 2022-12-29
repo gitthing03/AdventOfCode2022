@@ -4,7 +4,7 @@ def main():
 
 def part1():
     # open file
-    with open("inputs/3.txt", "r") as file:
+    with open("inputs/03.txt", "r") as file:
         # set sum var
         sumPrio = 0
         # read lines
@@ -25,7 +25,7 @@ def part1():
 
 def part2():
     # open file
-    with open("inputs/3.txt", "r") as file:
+    with open("inputs/03.txt", "r") as file:
         # set prio var
         sumPrio = 0
         # read lines

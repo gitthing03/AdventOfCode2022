@@ -1,6 +1,6 @@
 def main():
     # open file
-    with open("inputs/2.txt", 'r') as f:
+    with open("inputs/02.txt", 'r') as f:
         # score vars for each part
         score1 = 0
         score2 = 0

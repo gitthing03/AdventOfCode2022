@@ -35,7 +35,7 @@ def tailPointsCount(knotCount):
         prev = new
     tail = new
 
-    with open("inputs/9.txt", "r") as file:
+    with open("inputs/09.txt", "r") as file:
         # For each movement
         for move in [line.strip().split() for line in file.readlines()]:
             dir = move[0]

@@ -4,7 +4,7 @@ def main():
 
 def part1():
     # open input
-    with open("inputs/6.txt", "r") as file:
+    with open("inputs/06.txt", "r") as file:
         # read line
         for line in file.readlines():
             # starting at forth character, loop through every char
@@ -21,7 +21,7 @@ def part1():
 
 def part2():
     # open input
-    with open("inputs/6.txt", "r") as file:
+    with open("inputs/06.txt", "r") as file:
         # read line
         for line in file.readlines():
             # starting at fourteenth character, loop through every char

@@ -4,7 +4,7 @@ def main():
     print("Part2: " + output[1])
 
 def solution():
-    with open("inputs/8.txt", "r") as file:
+    with open("inputs/08.txt", "r") as file:
         # create matrix of input
         lines = [line.rstrip() for line in file.readlines()]
         data = [[] for line in lines]

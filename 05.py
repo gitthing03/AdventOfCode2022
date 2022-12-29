@@ -7,7 +7,7 @@ def part1():
     cargo = nCargo()
 
     # open input
-    with open("inputs/5.txt", 'r') as file:
+    with open("inputs/05.txt", 'r') as file:
         # read through commands
         for command in file.readlines():
             # split command string into seperate words
@@ -37,7 +37,7 @@ def part2():
     cargo = nCargo()
     
     # open input
-    with open("inputs/5.txt", 'r') as file:
+    with open("inputs/05.txt", 'r') as file:
         # read commands
         for command in file.readlines():
             # split words in command

@@ -66,7 +66,7 @@ class File(object):
 
 def solution():
     # open input
-    with open("inputs/7.txt", "r") as file:
+    with open("inputs/07.txt", "r") as file:
         # create base directory obj
         base = Directory(name="/")
         # set currentdir to base

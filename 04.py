@@ -3,7 +3,7 @@ def main():
     print("Part2: " + part2())
 
 def part1():
-    with open("inputs/4.txt", "r") as file:
+    with open("inputs/04.txt", "r") as file:
         numContains = 0
         for pair in file.readlines():
             # split string into two assignments
@@ -22,7 +22,7 @@ def part1():
     return str(numContains)
 
 def part2():
-    with open("inputs/4.txt", "r") as file:
+    with open("inputs/04.txt", "r") as file:
         numOverlaps = 0
         for pair in file.readlines():
         # split string into two assignments
